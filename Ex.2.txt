@@ -1,0 +1,58 @@
+﻿using System;
+
+namespace GFT
+{
+    /*2) Crie uma Classe Pessoa, contendo os atributos (nome, endereço e telefone)
+encapsulados, com seus respectivos seletores (getters) e modificadores (setters), e ainda o
+construtor padrão. Por fim, criar uma classe principal que instancie o objeto Pessoa,
+adicione no mínimo um valor para cada atributo e imprima na tela.*/
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Pessoa Joaquim = new Pessoa();
+            Joaquim.setEndereco="Rua quatro, 55";
+            Joaquim.setNome="Joaquim da Silva";
+            Joaquim.setTelefone="(11) 9999-9999";
+            Console.WriteLine();
+            Console.WriteLine(Joaquim.getEndereco);
+            Console.WriteLine(Joaquim.getNome);
+            Console.WriteLine(Joaquim.getTelefone);
+            Console.WriteLine();
+        }
+    }
+    public class Pessoa
+    {
+        private string nome;
+        private string endereco;
+        private string telefone;
+        public Pessoa()
+        {
+
+        }
+        public string getNome()
+        {
+            return nome;
+        }
+        public void setNome(string nome)
+        {
+            this.nome = nome;
+        }
+        public string getEndereco()
+        {
+            return endereco;
+        }
+        public void setEndereco(string endereco)
+        {
+            this.endereco = endereco;
+        }
+        public string getTelefone()
+        {
+            return telefone;
+        }
+        public void setTelefone(string telefone)
+        {
+            this.telefone = telefone;
+        }
+    }
+}

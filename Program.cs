@@ -2,37 +2,48 @@
 
 namespace GFT
 {
-    /*1) Elabore um algoritmo para mostrar os números ímpares existentes em um intervalo. O
-    usuário deverá fornecer os valores inicial (inicial > 0) e final (inicial < final) e os números
-    ímpares existentes no intervalo ([inicial, final]) devem ser separados por um espaço em
-    branco.
-    Exemplo:
-    Entrada: 2 13
-    Saída: 3 5 7 9 11 13*/
+    /*3) Considerando os conceitos de Orientação a Objetos, crie uma classe abstrata Pai de
+    nome Conta com os seguintes atributos (número, titular e saldo) e mais duas classes Filhas
+    (ContaCorrente e ContaPoupanca). Na classe Conta deve existir um método de nome
+    rendimento que retorna o rendimento mensal da conta, nas classes filhas deve existir o
+    mesmo método rendimento, porém com as seguintes regras:
+    Para ContaCorrente, o método rendimento deve retornar o saldo * 0.03;
+    Para ContaPoupanca, o método rendimento deve retornar o saldo * 0.05;
+    Por fim, criar uma classe principal que instancie objetos de ContaCorrente e
+    ContaPoupanca, adicione no mínimo um valor para cada atributo e imprima cada conta
+    (ContaCorrente e ContaPoupanca) com seus devidos rendimentos.
+    Obs: Encapsular atributos das classes.*/
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine();
-            Console.WriteLine("Mostra números impares no intervalo definido");
-            Console.WriteLine();
-            Console.Write("Entre com o início e final do intervalo separados por espaço: ");
-            int[] intervalo = Array.ConvertAll(Console.ReadLine().Split(' '), (item) => Convert.ToInt32(item));
-            Console.WriteLine();
+            ContaCorrente cc = new ContaCorrente();
+            ContaPoupanca cp = new ContaPoupanca();
+            cc.
+        }
+    }
+    public class Conta
+    {
+        protected int numero { get; set; }
+        private string titular { get; set; }
+        protected double saldo { get; set; }
+        public void rendimento()
+        {
             
-            int inicio = intervalo[0];
-            int final = intervalo[1];
-
-            for (int i = inicio; i <= final; i++)
-            {
-                if (i % 2 != 0)
-                {
-                    Console.Write("{0} ", i);
-                }
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-
+        }
+    }
+    public class ContaCorrente : Conta
+    {
+        public double rendimento()
+        {
+            return saldo * 0.03;
+        }
+    }
+    public class ContaPoupanca : Conta
+    {
+        public double rendimento()
+        {
+            return saldo * 0.05;
         }
     }
 }
