@@ -14,7 +14,7 @@ namespace GFT
         static void Main(string[] args)
         {
             Console.WriteLine();
-            onsole.WriteLine("Mostra números impares no intervalo definido");
+            Console.WriteLine("Mostra números impares no intervalo definido");
             Console.WriteLine();
             Console.Write("Entre com o início e final do intervalo separados por espaço: ");
             int[] intervalo = Array.ConvertAll(Console.ReadLine().Split(' '), (item) => Convert.ToInt32(item));
