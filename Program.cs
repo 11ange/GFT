@@ -2,67 +2,84 @@
 
 namespace GFT
 {
-    /*2) Crie uma Classe Pessoa, contendo os atributos (nome, endereço e telefone)
-encapsulados, com seus respectivos seletores (getters) e modificadores (setters), e ainda o
-construtor padrão. Por fim, criar uma classe principal que instancie o objeto Pessoa,
-adicione no mínimo um valor para cada atributo e imprima na tela.*/
+    /*3) Considerando os conceitos de Orientação a Objetos, crie uma classe abstrata Pai de
+    nome Conta com os seguintes atributos (número, titular e saldo) e mais duas classes Filhas
+    (ContaCorrente e ContaPoupanca). Na classe Conta deve existir um método de nome
+    rendimento que retorna o rendimento mensal da conta, nas classes filhas deve existir o
+    mesmo método rendimento, porém com as seguintes regras:
+    Para ContaCorrente, o método rendimento deve retornar o saldo * 0.03;
+    Para ContaPoupanca, o método rendimento deve retornar o saldo * 0.05;
+    Por fim, criar uma classe principal que instancie objetos de ContaCorrente e
+    ContaPoupanca, adicione no mínimo um valor para cada atributo e imprima cada conta
+    (ContaCorrente e ContaPoupanca) com seus devidos rendimentos.
+    Obs: Encapsular atributos das classes.*/
     class Program
     {
         static void Main(string[] args)
         {
-            Pessoa Joaquim = new Pessoa();
-            Joaquim.Endereco = "Rua quatro, 55";
-            Joaquim.Nome = "Joaquim da Silva";
-            Joaquim.Telefone = "(11) 9999-9999";
+            ContaCorrente cc = new ContaCorrente() { Numero = 1234, Titular = "fjskfjslfs", Saldo = 1000 };
+            ContaPoupanca cp = new ContaPoupanca() { Numero = 12341, Titular = "Fjskfjslfs", Saldo = 2000 };
             Console.WriteLine();
-            Console.WriteLine(Joaquim.Endereco);
-            Console.WriteLine(Joaquim.Nome);
-            Console.WriteLine(Joaquim.Telefone);
+            Console.WriteLine("Conta Corrente: {0} - {1} - {2} - {3}", cc.Numero, cc.Titular, cc.Saldo, cc.rendimento(cc.Saldo));
+            Console.WriteLine("Conta Poupança: {0} - {1} - {2} - {3}", cp.Numero, cp.Titular, cp.Saldo, cp.rendimento(cp.Saldo));
             Console.WriteLine();
         }
     }
-    public class Pessoa
+    public class Conta
     {
-        private string nome;
-        public string Nome
+        private int numero;
+        public int Numero
         {
             get
             {
-                return this.nome;
+                return this.numero;
             }
             set
             {
-                this.nome = value;
+                this.numero = value;
             }
         }
-        private string endereco;
-                public string Endereco
+        private string titular;
+        public string Titular
         {
             get
             {
-                return this.endereco;
+                return this.titular;
             }
             set
             {
-                this.endereco = value;
+                this.titular = value;
             }
         }
-        private string telefone;
-                public string Telefone
+        private double saldo;
+        public double Saldo
         {
             get
             {
-                return this.telefone;
+                return this.saldo;
             }
             set
             {
-                this.telefone = value;
+                this.saldo = value;
             }
         }
-        public Pessoa()
+        public virtual double rendimento(double saldo)
         {
-
+            return 0;
         }
-
+    }
+    public class ContaCorrente : Conta
+    {
+        public override double rendimento(double saldo)
+        {
+            return saldo * 0.03;
+        }
+    }
+    public class ContaPoupanca : Conta
+    {
+        public override double rendimento(double saldo)
+        {
+            return saldo * 0.05;
+        }
     }
 }

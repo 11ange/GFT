@@ -19,10 +19,10 @@ namespace GFT
         {
             ContaCorrente cc = new ContaCorrente() { Numero = 1234, Titular = "fjskfjslfs", Saldo = 1000 };
             ContaPoupanca cp = new ContaPoupanca() { Numero = 12341, Titular = "Fjskfjslfs", Saldo = 2000 };
-            Console.WriteLine("Conta Corrente: {0} {1} {2} {3}", cc.Numero, cc.Titular, cc.Saldo, cc.rendimento(1000));
-            Console.WriteLine("Conta Poupança: {0} {1} {2} {3}", cp.Numero, cp.Titular, cp.Saldo, cp.rendimento);
-            Console.WriteLine("Conta Corrente: {0} {1} {2}", cc.Numero, cc.Titular, cc.Saldo);
-            Console.WriteLine("Conta Poupança: {0} {1} {2}", cp.Numero, cp.Titular, cp.Saldo);
+            Console.WriteLine();
+            Console.WriteLine("Conta Corrente: {0} - {1} - {2} - {3}", cc.Numero, cc.Titular, cc.Saldo, cc.rendimento(cc.Saldo));
+            Console.WriteLine("Conta Poupança: {0} - {1} - {2} - {3}", cp.Numero, cp.Titular, cp.Saldo, cp.rendimento(cp.Saldo));
+            Console.WriteLine();
         }
     }
     public class Conta
