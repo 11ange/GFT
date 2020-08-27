@@ -11,48 +11,58 @@ adicione no mínimo um valor para cada atributo e imprima na tela.*/
         static void Main(string[] args)
         {
             Pessoa Joaquim = new Pessoa();
-            Joaquim.setEndereco="Rua quatro, 55";
-            Joaquim.setNome="Joaquim da Silva";
-            Joaquim.setTelefone="(11) 9999-9999";
+            Joaquim.Endereco = "Rua quatro, 55";
+            Joaquim.Nome = "Joaquim da Silva";
+            Joaquim.Telefone = "(11) 9999-9999";
             Console.WriteLine();
-            Console.WriteLine(Joaquim.getEndereco);
-            Console.WriteLine(Joaquim.getNome);
-            Console.WriteLine(Joaquim.getTelefone);
+            Console.WriteLine(Joaquim.Endereco);
+            Console.WriteLine(Joaquim.Nome);
+            Console.WriteLine(Joaquim.Telefone);
             Console.WriteLine();
         }
     }
     public class Pessoa
     {
         private string nome;
+        public string Nome
+        {
+            get
+            {
+                return this.nome;
+            }
+            set
+            {
+                this.nome = value;
+            }
+        }
         private string endereco;
+                public string Endereco
+        {
+            get
+            {
+                return this.endereco;
+            }
+            set
+            {
+                this.endereco = value;
+            }
+        }
         private string telefone;
+                public string Telefone
+        {
+            get
+            {
+                return this.telefone;
+            }
+            set
+            {
+                this.telefone = value;
+            }
+        }
         public Pessoa()
         {
 
         }
-        public string getNome()
-        {
-            return nome;
-        }
-        public void setNome(string nome)
-        {
-            this.nome = nome;
-        }
-        public string getEndereco()
-        {
-            return endereco;
-        }
-        public void setEndereco(string endereco)
-        {
-            this.endereco = endereco;
-        }
-        public string getTelefone()
-        {
-            return telefone;
-        }
-        public void setTelefone(string telefone)
-        {
-            this.telefone = telefone;
-        }
+
     }
 }

@@ -17,31 +17,67 @@ namespace GFT
     {
         static void Main(string[] args)
         {
-            ContaCorrente cc = new ContaCorrente();
-            ContaPoupanca cp = new ContaPoupanca();
-            cc.
+            ContaCorrente cc = new ContaCorrente() { Numero = 1234, Titular = "fjskfjslfs", Saldo = 1000 };
+            ContaPoupanca cp = new ContaPoupanca() { Numero = 12341, Titular = "Fjskfjslfs", Saldo = 2000 };
+            Console.WriteLine("Conta Corrente: {0} {1} {2} {3}", cc.Numero, cc.Titular, cc.Saldo, cc.rendimento(1000));
+            Console.WriteLine("Conta Poupança: {0} {1} {2} {3}", cp.Numero, cp.Titular, cp.Saldo, cp.rendimento);
+            Console.WriteLine("Conta Corrente: {0} {1} {2}", cc.Numero, cc.Titular, cc.Saldo);
+            Console.WriteLine("Conta Poupança: {0} {1} {2}", cp.Numero, cp.Titular, cp.Saldo);
         }
     }
     public class Conta
     {
-        protected int numero { get; set; }
-        private string titular { get; set; }
-        protected double saldo { get; set; }
-        public void rendimento()
+        private int numero;
+        public int Numero
         {
-            
+            get
+            {
+                return this.numero;
+            }
+            set
+            {
+                this.numero = value;
+            }
+        }
+        private string titular;
+        public string Titular
+        {
+            get
+            {
+                return this.titular;
+            }
+            set
+            {
+                this.titular = value;
+            }
+        }
+        private double saldo;
+        public double Saldo
+        {
+            get
+            {
+                return this.saldo;
+            }
+            set
+            {
+                this.saldo = value;
+            }
+        }
+        public virtual double rendimento(double saldo)
+        {
+            return 0;
         }
     }
     public class ContaCorrente : Conta
     {
-        public double rendimento()
+        public override double rendimento(double saldo)
         {
             return saldo * 0.03;
         }
     }
     public class ContaPoupanca : Conta
     {
-        public double rendimento()
+        public override double rendimento(double saldo)
         {
             return saldo * 0.05;
         }
